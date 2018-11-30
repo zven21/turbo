@@ -42,6 +42,7 @@ defmodule TurboTesterWeb do
       import TurboTesterWeb.ErrorHelpers
       import TurboTesterWeb.Gettext
       alias TurboTesterWeb.Router.Helpers, as: Routes
+      import Turbo.HTML
     end
   end
 

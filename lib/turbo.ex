@@ -15,4 +15,8 @@ defmodule Turbo do
   def hello do
     :world
   end
+
+  def default_theme do
+    Turbo.Config.default()
+  end
 end
