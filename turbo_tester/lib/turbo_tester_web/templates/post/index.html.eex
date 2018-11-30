@@ -1,9 +1,8 @@
-<h1>Listing Posts</h1>
 <%= form_for @conn, Routes.post_path(@conn, :index), [method: :get, class: "form-inline"], fn f -> %>
-  <div class="form-group mr-sm-2">
-    <%= turbo_search_input f, "q[title_or_body_like]", class: "form-control btn-sm", placeholder: "用户名" %>
+  <div class="form-group">
+    <%= turbo_search_input f, "q[title_or_body_like]", class: "form-control", placeholder: "title or body" %>
   </div>
-  <button class="btn btn-primary btn-sm">搜索</button>
+  <button class="btn btn-primary">Search</button>
 <% end %>
 <table>
   <thead>
@@ -13,8 +12,6 @@
       <th>Published at</th>
       <th>Visit count</th>
       <th>Like count</th>
-
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -25,12 +22,6 @@
       <td><%= post.published_at %></td>
       <td><%= post.visit_count %></td>
       <td><%= post.like_count %></td>
-
-      <td>
-        <%= link "Show", to: Routes.post_path(@conn, :show, post) %>
-        <%= link "Edit", to: Routes.post_path(@conn, :edit, post) %>
-        <%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
-      </td>
     </tr>
 <% end %>
   </tbody>
@@ -39,5 +30,3 @@
 <div class="card-footer">
   <%= render TurboTesterWeb.SharedView, "_pagination.html", assigns %>
 </div>
-
-<span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>

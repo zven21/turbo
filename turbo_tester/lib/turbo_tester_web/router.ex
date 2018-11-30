@@ -16,7 +16,7 @@ defmodule TurboTesterWeb.Router do
   scope "/", TurboTesterWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", PostController, :index
     resources "/users", UserController
     resources "/posts", PostController
   end
